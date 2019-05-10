@@ -1,0 +1,6 @@
+.inventoryContainer {
+    height: 70vh;
+    border: solid 1px white;
+    margin: 5px;
+    flex: 1;
+}

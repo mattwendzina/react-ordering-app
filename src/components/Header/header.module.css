@@ -1,0 +1,67 @@
+.headerContainer {
+    background: white;
+    width: 40%;
+    margin: 0 auto;
+    padding-bottom: 1px;
+    border-radius: 5px;
+    background: #ff3673;
+    color: white;
+    box-shadow: 1px 1px 8px #1a1a1a;
+}
+
+.headerTitle {
+    position: relative;
+    font-size: 60px;
+    animation-name: titleAnimation;
+    animation-duration: 1.5s;
+}
+
+.headerTitle:before {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+    right: 40%;
+    border-bottom: solid 5px white;
+}
+
+.headerTitle:after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 65%;
+    right: 25%;
+    border-bottom: solid 5px white;
+}
+
+.city {
+    padding-bottom: 0px;
+    box-sizing: border-box;
+    background: white;
+    padding: 1px;
+    border-top: #3a91b0 solid 5px;
+    border-bottom: #3a91b0 solid 5px;
+    color: #3a91b0;
+    font-size: 30px;
+}
+
+@keyframes titleAnimation {
+    1% {
+        transform: scale(0)
+    }
+
+    34% {
+        transform: scale(1.5);
+    }
+
+    35% {
+        transform: scale(1.5) rotate(0deg);
+        color: white
+    }
+
+    60% {
+        transform: scale(4) rotate(-5deg) translateY(100px);
+        color: rgb(244, 21, 206);
+    }
+
+}

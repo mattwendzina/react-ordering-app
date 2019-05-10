@@ -1,0 +1,25 @@
+.menuContainer {
+    height: 70vh;
+    border: solid 1px white;
+    margin: 5px;
+    flex: 1;
+    overflow: scroll;
+}
+
+.foodItemsContainer {
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    margin: 5px 0;
+    padding: 5px;
+}
+
+.image {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    object-position: center;
+}

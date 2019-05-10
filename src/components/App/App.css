@@ -1,0 +1,11 @@
+body {
+  background: #ffbe48
+}
+
+.App {
+  text-align: center;
+}
+
+.componentsContainer {
+  display: flex;
+}

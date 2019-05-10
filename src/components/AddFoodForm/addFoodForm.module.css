@@ -1,0 +1,25 @@
+.foodForm {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name,
+.price,
+.status {
+    flex: 1 32%;
+    height: 40px;
+}
+
+.status {
+    height: 46px;
+}
+
+.desc,
+.image {
+    flex: 1 100%;
+    height: 60px;
+}
+
+.image {
+    height: 40px;
+}
