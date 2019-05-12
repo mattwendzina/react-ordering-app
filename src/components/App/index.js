@@ -1,29 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-// import Storepicker from "../Storepicker";
+
+// Components
 import Header from "../Header";
 import Menu from "../Menu";
 import Order from "../Order";
 import Inventory from "../Inventory";
 
+// Helpers
+import { formatter } from "../../helpers";
+
+// Data
 import sampleItems from "../../sampleItems";
 
+// Database
+import base from "../../base";
+
 const App = props => {
-  const [state, setState] = useState({
-    foodItems: {},
-    order: {}
-  });
+  const [menuItems, setMenuItems] = useState({});
+  const [cart, setCart] = useState({});
+
+  const { params } = props.match;
+
+  useEffect(() => {
+    const ref = base.syncState(`${params.id}/menuItems`, {
+      context: {
+        setState: ({ menuItems }) => setMenuItems({ ...menuItems }),
+        state: { menuItems }
+      },
+      state: "menuItems"
+    });
+    console.log("Base", base);
+    return () => {
+      base.removeBinding(ref);
+    };
+  }, []);
 
   const addItem = item => {
-    const newItem = state.foodItems;
+    const newItem = menuItems;
     newItem[`item${Date.now()}`] = item;
-    setState({ ...state, foodItems: newItem });
-    console.log(state);
+    setMenuItems({ ...menuItems, ...newItem });
   };
 
   const loadSampleItems = () => {
-    setState({ ...state, foodItems: sampleItems });
-    console.log(state);
+    setMenuItems({ ...menuItems, ...sampleItems });
+  };
+
+  const addToCart = key => {
+    const order = cart;
+    order[key] = order[key] + 1 || 1;
+    setCart({ ...order });
   };
 
   return (
@@ -34,9 +60,18 @@ const App = props => {
         caption="We get em right, first time, every time!"
       />
       <div className="componentsContainer">
-        <Menu foodItems={state.foodItems} />
-        <Order />
-        <Inventory addItem={addItem} loadSampleItems={loadSampleItems} />
+        <Menu
+          menuItems={menuItems}
+          addToCart={addToCart}
+          formatter={formatter}
+        />
+        <Order cart={cart} menuItems={menuItems} />
+        <Inventory
+          addItem={addItem}
+          loadSampleItems={loadSampleItems}
+          menuItems={menuItems}
+          setMenuItems={setMenuItems}
+        />
       </div>
     </div>
   );

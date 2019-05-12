@@ -1,25 +1,26 @@
 .foodForm {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
 }
 
 .name,
 .price,
 .status {
-    flex: 1 32%;
-    height: 40px;
+  flex: 1 32%;
+  height: 40px;
 }
 
 .status {
-    height: 46px;
+  height: 46px;
 }
 
 .desc,
 .image {
-    flex: 1 100%;
-    height: 60px;
+  flex: 1 100%;
+  height: 60px;
 }
 
 .image {
-    height: 40px;
+  height: 40px;
 }

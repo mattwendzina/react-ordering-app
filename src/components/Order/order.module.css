@@ -1,6 +1,29 @@
 .orderContainer {
-    height: 70vh;
-    border: solid 1px white;
-    margin: 5px;
-    flex: 1;
+  height: 70vh;
+  border: solid 1px white;
+  margin: 5px;
+  flex: 1;
+  overflow: scroll;
+}
+
+.orderContainer h2,
+.orderContainer h3 {
+  margin: 10px 0 0 0;
+}
+
+.orders {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+.orderItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderItem p,
+.orderItem h3 {
+  margin: 0;
+  padding: 0;
 }

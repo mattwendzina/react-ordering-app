@@ -1,5 +1,5 @@
 body {
-  background: #ffbe48
+  background: #ffbe48;
 }
 
 .App {
@@ -8,4 +8,23 @@ body {
 
 .componentsContainer {
   display: flex;
+}
+
+button {
+  font-family: "Pacifico", cursive;
+  margin: 10px auto;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px;
+  font-size: 15px;
+  background: #fccfd8;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+button:hover {
+  box-shadow: 2px 2px 5px;
+}
+
+button[disabled]:hover {
+  box-shadow: 1px 1px 5px;
 }
