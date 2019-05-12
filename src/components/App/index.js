@@ -30,7 +30,7 @@ const App = props => {
       },
       state: "menuItems"
     });
-    console.log("Base", base);
+
     return () => {
       base.removeBinding(ref);
     };
